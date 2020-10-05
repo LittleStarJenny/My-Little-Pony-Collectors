@@ -1,0 +1,13 @@
+
+#RewriteBase /Mylittlepony/
+RewriteEngine on
+
+#Make sure it's not an actual file
+RewriteCond %{REQUEST_FILENAME} !-f
+#Make sure its not a directory
+RewriteCond %{REQUEST_FILENAME} !-d 
+#Rewrite the request to remove .
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+#RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+#RewriteRule ^category/([a-zA-Z]+) category-pages.php?categoryname=$1 [NC,L]
